@@ -769,10 +769,106 @@ const manifest: DecoManifest = {
               "display",
             ],
           },
+          "navigation": {
+            "title": "Navigation",
+            "type": "object",
+            "properties": {
+              "cols": {
+                "title": "Cols",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": [
+                        "string",
+                        "null",
+                      ],
+                      "title": "Title",
+                    },
+                    "align": {
+                      "type": "string",
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "const": "row",
+                        },
+                        {
+                          "type": "string",
+                          "const": "column",
+                        },
+                      ],
+                      "title": "Align",
+                    },
+                    "items": {
+                      "title": "Items",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "text": {
+                            "type": [
+                              "string",
+                              "null",
+                            ],
+                            "title": "Text",
+                          },
+                          "icon": {
+                            "type": "string",
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "none",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Phone",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Email",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Facebook",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Instagram",
+                              },
+                            ],
+                            "title": "Icon",
+                          },
+                          "image": {
+                            "type": [
+                              "string",
+                              "null",
+                            ],
+                            "title": "Image",
+                          },
+                          "href": {
+                            "type": [
+                              "string",
+                              "null",
+                            ],
+                            "title": "Href",
+                          },
+                        },
+                        "required": [],
+                      },
+                    },
+                  },
+                  "required": [],
+                },
+              },
+            },
+            "required": [],
+          },
         },
         "required": [
           "newsletter",
           "copyright",
+          "navigation",
         ],
       },
       "outputSchema": null,
