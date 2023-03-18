@@ -30,13 +30,14 @@ import * as $$$10 from "./sections/ProductDetails.tsx";
 import * as $$$11 from "./sections/ProductGallery.tsx";
 import * as $$$12 from "./sections/ProductShelf.tsx";
 import * as $$$13 from "./sections/SearchControls.tsx";
-import * as $$$14 from "./sections/WhatsApp.tsx";
-import * as $$$15 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$16 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$17 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$18 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$19 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$20 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$14 from "./sections/SlidesBenefics.tsx";
+import * as $$$15 from "./sections/WhatsApp.tsx";
+import * as $$$16 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$17 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$18 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$19 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$20 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$21 from "deco-sites/std/sections/configVTEX.global.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -87,13 +88,14 @@ const manifest: DecoManifest = {
     "./sections/ProductGallery.tsx": $$$11,
     "./sections/ProductShelf.tsx": $$$12,
     "./sections/SearchControls.tsx": $$$13,
-    "./sections/WhatsApp.tsx": $$$14,
-    "deco-sites/std/sections/SEO.tsx": $$$15,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$16,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$17,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$18,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$19,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$20,
+    "./sections/SlidesBenefics.tsx": $$$14,
+    "./sections/WhatsApp.tsx": $$$15,
+    "deco-sites/std/sections/SEO.tsx": $$$16,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$17,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$18,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$19,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$20,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$21,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -1211,6 +1213,69 @@ const manifest: DecoManifest = {
         "required": [
           "page",
         ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/SlidesBenefics.tsx": {
+      "inputSchema": {
+        "title": " Slides Benefics",
+        "type": "object",
+        "properties": {
+          "cards": {
+            "type": "array",
+            "items": {
+              "title": "Card",
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "title": "Title",
+                  "description": "icone image",
+                },
+                "icon": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Icon",
+                  "description": "icone image",
+                },
+                "alt": {
+                  "type": "string",
+                  "title": "Alt",
+                  "description": "alt image",
+                },
+                "action": {
+                  "title": "Action",
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string",
+                      "title": "Href",
+                    },
+                  },
+                  "required": [
+                    "href",
+                  ],
+                },
+              },
+              "required": [
+                "title",
+                "icon",
+                "alt",
+              ],
+            },
+            "title": "Cards",
+          },
+          "interval": {
+            "type": [
+              "number",
+              "null",
+            ],
+            "title": "Autoplay interval",
+            "description":
+              "time (in seconds) to start the carousel autoplay in mobile",
+          },
+        },
+        "required": [],
       },
       "outputSchema": null,
     },
