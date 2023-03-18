@@ -49,89 +49,49 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   } = image;
 
   return (
-    <div class="relative h-[600px] min-w-[100vw] overflow-y-hidden">
+    <div class="relative h-auto min-w-[100vw] overflow-y-hidden ">
       <a href={action?.href ?? "#"} aria-label={action?.label}>
-        <Picture class="w-full" preload={lcp}>
+        <Picture class="w-full " preload={lcp}>
           <Source
             media="(max-width: 767px)"
             fetchPriority={lcp ? "high" : "auto"}
             src={mobile}
-            width={360}
-            height={600}
+            width={414}
+            height={552}
           />
           <Source
             media="(min-width: 768px)"
             fetchPriority={lcp ? "high" : "auto"}
             src={desktop}
             width={1440}
-            height={600}
+            height={570}
           />
           <img
-            class="object-cover w-full sm:h-full"
+            class="object-cover w-full h-auto sm:h-full"
             loading={lcp ? "eager" : "lazy"}
             src={desktop}
             alt={alt}
           />
         </Picture>
-        {action && (
-          <div
-            class="absolute top-0 bottom-0 m-auto left-0 right-0 sm:right-auto sm:left-[12%] max-h-min max-w-[235px] flex flex-col gap-4 bg-hover-inverse p-4 rounded"
-            style={{ backdropFilter: "blur(8px)" }}
-          >
-            <Text variant="heading-1" tone="default-inverse">
-              {action.title}
-            </Text>
-            <Text variant="heading-3" tone="default-inverse">
-              {action.subTitle}
-            </Text>
-            <Button variant="secondary">{action.label}</Button>
-          </div>
-        )}
       </a>
     </div>
   );
 }
 
-function Dots({ images, interval = 0 }: Props) {
+function Dots({ images }: Props) {
   return (
     <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-          @property --dot-progress {
-            syntax: '<percentage>';
-            inherits: false;
-            initial-value: 0%;
-          }`,
-        }}
-      >
-      </style>
-      <ol class="flex items-center justify-center col-span-full gap-4 z-10 row-start-4">
+      <ol class="flex items-center justify-center col-span-full gap-1 z-10 row-start-4">
         {images?.map((_, index) => (
-          <li class="h-full">
+          <li class="h-[20px] w-[20px]">
             <button
               data-dot={index}
               aria-label={`go to slider item ${index}`}
               class="h-full rounded focus:outline-none group"
             >
               <div
-                class={tw`group-disabled:${
-                  animation(
-                    `${interval}s ease-out 1 forwards`,
-                    keyframes`
-                      from: {
-                        --dot-progress: 0%;
-                      }
-                      to {
-                        --dot-progress: 100%;
-                      }
-                    `,
-                  )
-                } w-16 sm:w-20 h-0.5`}
-                style={{
-                  background:
-                    "linear-gradient(to right, #FFFFFF var(--dot-progress), rgba(255, 255, 255, 0.4) var(--dot-progress))",
-                }}
+                class= {tw`bg-white group-disabled:${ 'bg-black'
+                } w-3 sm:w-3 h-3 rounded-full group-disabled:bg-black`}
               />
             </button>
           </li>
@@ -153,7 +113,7 @@ function Controls() {
         >
           <Icon
             class="text-default-inverse"
-            size={20}
+            size={30}
             id="ChevronLeft"
             strokeWidth={3}
           />
@@ -168,7 +128,7 @@ function Controls() {
         >
           <Icon
             class="text-default-inverse"
-            size={20}
+            size={30}
             id="ChevronRight"
             strokeWidth={3}
           />
@@ -184,7 +144,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
   return (
     <div
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
+      class="w-full grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
     >
       <Slider class="col-span-full row-span-full scrollbar-none gap-6">
         {images?.map((image, index) => (
