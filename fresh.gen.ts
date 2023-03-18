@@ -710,9 +710,40 @@ const manifest: DecoManifest = {
               "display",
             ],
           },
+          "copyright": {
+            "title": "Copyright",
+            "type": "object",
+            "properties": {
+              "display": {
+                "type": "string",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "const": "true",
+                  },
+                  {
+                    "type": "string",
+                    "const": "false",
+                  },
+                ],
+                "title": "Display",
+              },
+              "text": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Text",
+              },
+            },
+            "required": [
+              "display",
+            ],
+          },
         },
         "required": [
           "newsletter",
+          "copyright",
         ],
       },
       "outputSchema": null,

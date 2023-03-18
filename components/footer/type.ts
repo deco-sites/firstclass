@@ -3,3 +3,8 @@ export interface NewsletterProps {
     title?: string;
     description?: string;
 }
+
+export interface CopyrightProps {
+    display: "true" | "false";
+    text?: string;
+}
