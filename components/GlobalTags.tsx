@@ -37,6 +37,19 @@ function GlobalTags() {
       <style
         dangerouslySetInnerHTML={{
           __html: `
+          @font-face {
+            font-family: "Montserrat";
+            src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+            font-weight: 100 900;
+            font-display: swap;
+          }
+          @font-face {
+            font-family: "Montserrat";
+            src: url("/fonts/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
+            font-weight: 100 900;
+            font-style: italic;
+            font-display: swap;
+          }
           /* latin-ext */
           @font-face {
             font-family: 'Albert Sans';
