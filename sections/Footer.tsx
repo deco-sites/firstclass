@@ -9,7 +9,8 @@ export type {
 
 export type {
   NewsletterProps,
-  CopyrightProps
+  CopyrightProps,
+  NavigationProps,
 } from "$store/components/footer/type.ts";
 
 export type { AvailableIcons } from "$store/components/ui/Icon.tsx";
