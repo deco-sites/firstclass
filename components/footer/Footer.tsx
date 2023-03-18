@@ -3,6 +3,7 @@ import Text from "$store/components/ui/Text.tsx";
 import Container from "$store/components/ui/Container.tsx";
 
 import Newsletter from "./Newsletter.tsx";
+import Copyright from "./Copyright.tsx";
 import type { ComponentChildren } from "preact";
 
 export type IconItem = { icon: AvailableIcons };
@@ -54,16 +55,21 @@ function FooterContainer(
   return <div class={`${_class}`}>{children}</div>;
 }
 
-import { NewsletterProps } from "./type.ts";
+import { NewsletterProps, CopyrightProps } from "./type.ts";
 
 export interface Props {
   sections?: Section[];
   newsletter: NewsletterProps;
+  copyright: CopyrightProps;
 }
 
-function Footer({ sections = [], newsletter }: Props) {
+function Footer({ 
+  sections = [],
+  newsletter,
+  copyright 
+}: Props) {
   return (
-    <footer class="w-full bg-footer flex flex-col divide-y-1 divide-default">
+    <footer class="w-full bg-white flex flex-col divide-y-1 divide-default">
       <div>
         <Container class="w-full flex flex-col divide-y-1 divide-default max-w-none">
         { newsletter?.display &&
@@ -184,6 +190,16 @@ function Footer({ sections = [], newsletter }: Props) {
           </FooterContainer>
         </Container>
       </div>
+      {
+        copyright.display == "true" &&
+        <div>
+          <Container class="w-full">
+            <FooterContainer>
+              <Copyright props={copyright}/>
+            </FooterContainer>
+          </Container>
+        </div>
+      }
     </footer>
   );
 }
