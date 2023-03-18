@@ -33,6 +33,10 @@ const gridRows = ([arg]: string[]) => {
 const options: Omit<Options, "selfURL"> = {
   theme: {
     extend: {
+      width: {
+      "fit-content": "fit-content",
+      "half": "50%",
+      },
       colors: {
         "default": "#FFFFFF",
         "header": "#FFFFFF",
@@ -82,6 +86,7 @@ const options: Omit<Options, "selfURL"> = {
         "heading-4": ["1.625rem", "2rem"],
         "heading-5": ["1.4375rem", "1.75rem"],
         "heading-6": ["1.313rem", "1.563rem"],
+        "paragraph-xl": ["1.25rem", "1.5rem"],
         "paragraph-lg": ["1.125rem", "2.375rem"],
         "paragraph": [".8125rem", "1.625rem"],
         "price": ["1.063rem", "1.25rem"],
@@ -137,7 +142,7 @@ const options: Omit<Options, "selfURL"> = {
     fontFamily: {
       sans: ["Albert Sans", "sans-serif"],
       serif: ["inherit", "serif"],
-      monteserrat: ["Montserrat", "sans-serif"],
+      montserrat: ["Montserrat", "sans-serif"],
     },
     screens: {
       sm: "640px",

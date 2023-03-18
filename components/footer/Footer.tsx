@@ -3,6 +3,7 @@ import Text from "$store/components/ui/Text.tsx";
 import Container from "$store/components/ui/Container.tsx";
 
 import Newsletter from "./Newsletter.tsx";
+import Copyright from "./Copyright.tsx";
 import type { ComponentChildren } from "preact";
 
 export type IconItem = { icon: AvailableIcons };
@@ -51,22 +52,33 @@ function FooterContainer(
     children: ComponentChildren;
   },
 ) {
-  return <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>{children}</div>;
+  return <div class={`${_class}`}>{children}</div>;
 }
+
+import { NewsletterProps, CopyrightProps } from "./type.ts";
 
 export interface Props {
   sections?: Section[];
+  newsletter: NewsletterProps;
+  copyright: CopyrightProps;
 }
 
-function Footer({ sections = [] }: Props) {
+function Footer({ 
+  sections = [],
+  newsletter,
+  copyright 
+}: Props) {
   return (
-    <footer class="w-full bg-footer flex flex-col divide-y-1 divide-default">
+    <footer class="w-full bg-white flex flex-col divide-y-1 divide-default">
       <div>
-        <Container class="w-full flex flex-col divide-y-1 divide-default">
-          <FooterContainer>
-            <Newsletter />
-          </FooterContainer>
+        <Container class="w-full flex flex-col divide-y-1 divide-default max-w-none">
+        { newsletter?.display &&
+            <FooterContainer>
+              <Newsletter props={newsletter}/>
+            </FooterContainer>
+        }
 
+        { sections?.length > 0 &&
           <FooterContainer>
             {/* Desktop view */}
             <ul class="hidden sm:flex flex-row gap-20">
@@ -95,7 +107,7 @@ function Footer({ sections = [] }: Props) {
 
             {/* Mobile view */}
             <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
-              {sections.map((section) => (
+              {sections?.map((section) => (
                 <li>
                   <Text variant="body" tone="default-inverse">
                     <details>
@@ -120,6 +132,7 @@ function Footer({ sections = [] }: Props) {
               ))}
             </ul>
           </FooterContainer>
+        }
         </Container>
       </div>
 
@@ -177,6 +190,16 @@ function Footer({ sections = [] }: Props) {
           </FooterContainer>
         </Container>
       </div>
+      {
+        copyright.display == "true" &&
+        <div>
+          <Container class="w-full">
+            <FooterContainer>
+              <Copyright props={copyright}/>
+            </FooterContainer>
+          </Container>
+        </div>
+      }
     </footer>
   );
 }
