@@ -673,8 +673,47 @@ const manifest: DecoManifest = {
             },
             "title": "Sections",
           },
+          "newsletter": {
+            "title": "Newsletter",
+            "type": "object",
+            "properties": {
+              "display": {
+                "type": "string",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "const": "true",
+                  },
+                  {
+                    "type": "string",
+                    "const": "false",
+                  },
+                ],
+                "title": "Display",
+              },
+              "title": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Title",
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Description",
+              },
+            },
+            "required": [
+              "display",
+            ],
+          },
         },
-        "required": [],
+        "required": [
+          "newsletter",
+        ],
       },
       "outputSchema": null,
     },
