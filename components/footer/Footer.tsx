@@ -84,63 +84,6 @@ function Footer({
             <Newsletter props={newsletter}/>
           </FooterContainer>
       }
-
-      {/* { sections?.length > 0 &&
-        <FooterContainer> */}
-          
-          {/* Desktop view */}
-          {/* <ul class="hidden sm:flex flex-row gap-20">
-            {sections.map((section) => (
-              <li>
-                <div>
-                  <Text variant="heading-3" tone="default-inverse">
-                    {section.label}
-                  </Text>
-
-                  <ul
-                    class={`flex ${
-                      isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                    } gap-2 pt-2`}
-                  >
-                    {section.children.map((item) => (
-                      <li>
-                        <SectionItem item={item} />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </li>
-            ))}
-          </ul> */}
-
-          {/* Mobile view */}
-          {/* <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
-            {sections?.map((section) => (
-              <li>
-                <Text variant="body" tone="default-inverse">
-                  <details>
-                    <summary>
-                      {section.label}
-                    </summary>
-
-                    <ul
-                      class={`flex ${
-                        isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 px-2 pt-2`}
-                    >
-                      {section.children.map((item) => (
-                        <li>
-                          <SectionItem item={item} />
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
-                </Text>
-              </li>
-            ))}
-          </ul> */}
-        {/* </FooterContainer>
-      } */}
       </Container>
 
       <Navigation props={navigation} />

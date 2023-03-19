@@ -1,11 +1,12 @@
 import { NavigationProps } from "./type.ts";
 
+import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
+
 interface Props {
-  props?: NavigationProps
+  props?: NavigationProps,
 }
 
 function Navigation({ props } : Props) {
-
   return (
     <div class="px-4 py-6 w-full font-montserrat max-w-[1320px] m-auto">
         {/* Desktop */}
@@ -25,13 +26,24 @@ function Navigation({ props } : Props) {
                         ||
                         index == 8 && "row-start-3 col-start-3";
 
+                const align = index == 7 && "flex-row"
+
                 return (
                     <div class={`flex flex-row ${pos}`}>
                         <div class="flex flex-col">
                             <div class="text-caption-lg mb-4">{col.title}</div>
-                            <ul class="flex flex-col gap-3 text-caption">
+                            <ul class={`flex flex-col gap-3 text-caption ${align}`}>
                             {
                                 col.items?.map((item, index) => {
+                                    if (item.icon && item.icon !== "none")
+                                        return (
+                                            <li>
+                                                <a href={item.href ? item.href : "#"} class="flex align-center items-center">
+                                                    <Icon id={item.icon} width={20} height={20} strokeWidth={1} />
+                                                    {item.text}
+                                                </a>
+                                            </li>
+                                        )
                                     if (item.text) 
                                         return (
                                             <li class="hover:font-semibold transition">

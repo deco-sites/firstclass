@@ -431,6 +431,18 @@ const manifest: DecoManifest = {
                   "anyOf": [
                     {
                       "type": "string",
+                      "const": "none",
+                    },
+                    {
+                      "type": "string",
+                      "const": "Phone",
+                    },
+                    {
+                      "type": "string",
+                      "const": "Email",
+                    },
+                    {
+                      "type": "string",
                       "const": "ChevronLeft",
                     },
                     {
@@ -636,6 +648,18 @@ const manifest: DecoManifest = {
                           "icon": {
                             "type": "string",
                             "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "none",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Phone",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Email",
+                              },
                               {
                                 "type": "string",
                                 "const": "ChevronLeft",
