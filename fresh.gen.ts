@@ -1364,6 +1364,10 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Title",
           },
+          "subtitle": {
+            "type": "string",
+            "title": "Subtitle",
+          },
           "products": {
             "$id": "1f15a836acd2ecbefef6eaf34ebcff98e39811f3",
             "format": "live-function",
@@ -1380,6 +1384,7 @@ const manifest: DecoManifest = {
         },
         "required": [
           "title",
+          "subtitle",
           "products",
         ],
       },

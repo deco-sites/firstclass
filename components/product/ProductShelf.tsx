@@ -11,12 +11,14 @@ import type { Product } from "deco-sites/std/commerce/types.ts";
 
 export interface Props {
   title: string;
+  subtitle: string;
   products: LoaderReturnType<Product[] | null>;
   itemsPerPage?: number;
 }
 
 function ProductShelf({
   title,
+  subtitle,
   products,
 }: Props) {
   const id = useId();
@@ -28,11 +30,17 @@ function ProductShelf({
   return (
     <Container
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px_1fr] py-10 px-0 sm:px-5"
+      class="grid grid-cols-[48px_1fr_48px] grid-rows-[100px_1fr_48px_1fr] py-12 px-0 sm:px-5"
     >
-      <h2 class="font-montserrat text-center row-start-1 col-span-full">
-        <Text variant="heading-2">{title}</Text>
-      </h2>
+      <div class="max-w-[1280px] w-screen flex flex-col justify-center items-center">
+        <h2 class="font-montserrat text-center row-start-1 col-span-full ">
+          <Text variant="heading-2" class="text-xl lg:text-4xl">{title}</Text>
+        </h2>
+
+        <p class="my-8">
+          <Text class="text-base text-default lg:text-lg">{subtitle}</Text>
+        </p>
+      </div>
 
       <Slider
         class="gap-6 col-span-full row-start-2 row-end-5"

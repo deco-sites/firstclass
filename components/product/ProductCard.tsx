@@ -49,20 +49,20 @@ function ProductCard({ product, preload }: Props) {
     offers,
   } = product;
   const [front, back] = images ?? [];
-  const { listPrice, price, seller } = useOffer(offers);
+  const { listPrice, price, seller, installments } = useOffer(offers);
 
   return (
     <div
       id={`product-card-${productID}`}
-      class="w-full group"
+      class="w-full group border-1 border-default p-1 hover:shadow-xl hover:border-yellow-300" 
     >
       <a href={url} aria-label="product link">
         <div class="relative w-full">
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={200}
-            height={279}
+            width={300}
+            height={300}
             class="rounded w-full group-hover:hidden"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
@@ -71,8 +71,8 @@ function ProductCard({ product, preload }: Props) {
           <Image
             src={back?.url ?? front.url!}
             alt={back?.alternateName ?? front.alternateName}
-            width={200}
-            height={279}
+            width={300}
+            height={300}
             class="rounded w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
@@ -85,29 +85,29 @@ function ProductCard({ product, preload }: Props) {
               }}
             >
               <Sizes {...product} />
-              <Button as="a" href={product.url}>Visualizar Produto</Button>
             </div>
           )}
         </div>
 
-        <div class="flex flex-col gap-1 py-2">
+        <div class="flex flex-col justify-center gap-1 py-2">
           <Text
-            class="overflow-hidden overflow-ellipsis whitespace-nowrap"
+            class=" text-center overflow-hidden overflow-ellipsis whitespace-nowrap"
             variant="caption"
           >
             {name}
           </Text>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center flex-col gap-1">
             <Text
-              class="line-through"
+              class="line-through text-xs"
               variant="list-price"
               tone="subdued"
             >
               {formatPrice(listPrice, offers!.priceCurrency!)}
             </Text>
-            <Text variant="caption" tone="price">
-              {formatPrice(price, offers!.priceCurrency!)}
+            <Text class="font-bold text-sm" variant="caption" tone="price">A partir de 
+              {" " + formatPrice(price, offers!.priceCurrency!)}
             </Text>
+            <Text class="text-default text-sm" variant="caption" tone="price">{installments}</Text>
           </div>
         </div>
       </a>
