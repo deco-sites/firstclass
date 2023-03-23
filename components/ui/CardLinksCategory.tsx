@@ -19,10 +19,10 @@ export interface Card {
   width: number;
   /** @description href*/
   href: string;
-//   action: {
-//     ishover?: boolean;
-//     iconhover?: LiveImage;
-//   };
+  //   action: {
+  //     ishover?: boolean;
+  //     iconhover?: LiveImage;
+  //   };
 }
 
 export interface Props {
@@ -44,24 +44,22 @@ function ItemCard({ card }: { card: Card }) {
     href,
   } = card;
 
-//   const [ishover, setIsHover] = useState(false);
-//   const [src, setSrc] = useState(icon);
+  //   const [ishover, setIsHover] = useState(false);
+  //   const [src, setSrc] = useState(icon);
 
-//   useEffect(() => {
-//     console.log("over");
-//     if (ishover && action.ishover) {
-//       setSrc(action.iconhover || icon);
-//     }
-//     setSrc(icon);
-//   }, [ishover]);
+  //   useEffect(() => {
+  //     console.log("over");
+  //     if (ishover && action.ishover) {
+  //       setSrc(action.iconhover || icon);
+  //     }
+  //     setSrc(icon);
+  //   }, [ishover]);
 
-//   function Clicked() {
-//     console.log("click");
-//   }
+  //   function Clicked() {
+  //     console.log("click");
+  //   }
   return (
-    <div
-      class="relative h-auto min-w-[100vw] lg:min-w-full overflow-y-hidden "
-    >
+    <div class="relative h-auto min-w-[100vw] lg:min-w-full overflow-y-hidden ">
       <a
         class="w-full grid grid-cols-1 grid-rows justify-items-center p-3"
         href={href}
@@ -138,24 +136,31 @@ function Controls() {
 }
 
 function CardLinksCategory({ cards, title, interval }: Props) {
-  const id = useId();
+  const id = "CardLinksCategory";
 
   return (
-    <div class="w-full my-5">
-      <h2 class="w-full text-center text-xl">{title}</h2>
-      <div
-        id={id}
-        class=" relative w-full grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px] lg:grid-cols-5"
-      >
-        <Slider class="col-span-full row-span-full scrollbar-none gap-6 lg:flex lg:justify-center lg:gap-3 lg:px-24">
-          {cards.map((card, index) => <ItemCard card={card} />)}
-        </Slider>
+    <div class="w-full flex justify-center">
+      <div class="w-full my-5 max-w-[700px] lg:max-w-full">
+        <h2 class="w-full text-center text-xl mb-10 mt-12 lg:text-2xl text-default">
+          {title}
+        </h2>
+        <div
+          id={id}
+          class=" relative w-full grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px] lg:grid-cols-5"
+        >
+          <Slider class="col-span-full row-span-full scrollbar-none gap-6 lg:flex lg:justify-center lg:gap-20 lg:px-24">
+            {cards.map((card, index) => <ItemCard card={card} />)}
+          </Slider>
 
-        <Controls />
+          <Controls />
 
-        <Dots cards={cards} interval={interval} />
+          <Dots cards={cards} interval={interval} />
 
-        <SliderControllerJs rootId={id} interval={interval && interval * 1e3}  />
+          <SliderControllerJs
+            rootId={id}
+            interval={interval && interval * 1e3}
+          />
+        </div>
       </div>
     </div>
   );

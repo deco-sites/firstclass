@@ -47,7 +47,7 @@ function BarBenefics({ card }: { card: Card }) {
 }
 
 function Slide({ cards, interval }: Props) {
-  const id = useId();
+  const id = "BarBenefics";
   return (
     <>
       <div
