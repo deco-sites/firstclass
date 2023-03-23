@@ -30,7 +30,7 @@ function ProductShelf({
       id={id}
       class="grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px_1fr] py-10 px-0 sm:px-5"
     >
-      <h2 class="text-center row-start-1 col-span-full">
+      <h2 class="font-montserrat text-center row-start-1 col-span-full">
         <Text variant="heading-2">{title}</Text>
       </h2>
 

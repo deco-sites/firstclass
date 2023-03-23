@@ -57,7 +57,7 @@ const options: Omit<Options, "selfURL"> = {
         "primary500": "#FFCE00",
       },
       textColor: {
-        "default": "#161616",
+        "default": "#676767",
         "default-inverse": "#FFFFFF",
         "subdued": "#66736C",
         "subdued-inverse": "#C6C6C6",

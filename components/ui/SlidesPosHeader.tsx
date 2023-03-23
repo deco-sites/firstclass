@@ -1,7 +1,6 @@
 import { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import SliderControllerJs from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
-import { useId } from "preact/hooks";
 
 export interface InfosSlides {
   /** @description Icon ilustration*/
@@ -48,15 +47,15 @@ function ItemSlide({ info }: { info: InfosSlides }) {
 }
 
 function SlidePosHeader({ infos, interval, action }: Props) {
-    const id = useId();
+    const id = "SlidePosHeader";
   return (
-    <a href={action?.href} id={id} class="fixed bg-yellow-custom flex items-center justify-center col-span-full gap-1 z-20 row-start-4">
+    <div href={action?.href} id={id} class=" bg-yellow-custom flex items-center justify-center col-span-full gap-1 z-20 row-start-4">
       <Slider class="col-span-full row-span-full scrollbar-none gap-6 ">
         {infos.map((info, index) => <ItemSlide info={info} />)}
       </Slider>
 
       <SliderControllerJs rootId={id} interval={interval && interval * 1e3} />
-    </a>
+    </div>
   );
 }
 
